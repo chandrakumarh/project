@@ -1,0 +1,6 @@
+[
+  {
+    "name": "testrepo",
+    "imageUri":"287652358019.dkr.ecr.ap-south-1.amazonaws.com/testrepo:1.0"
+  }
+]
