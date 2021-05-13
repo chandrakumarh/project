@@ -15,7 +15,6 @@ phases:
   build:
     commands:
       - echo Build started on `date`
-      - mvn package
       - echo Building the Docker image...
       - docker build -t $REPOSITORY_URI:latest .
       - docker tag $REPOSITORY_URI:latest $REPOSITORY_URI:$IMAGE_TAG
@@ -23,8 +22,8 @@ phases:
     commands:
       - echo Build completed on `date`
       - echo Pushing the Docker images...
-      - docker image ls -a
-      - docker push $REPOSITORY_URI:$IMAGE_TAG
+      - docker login -u AWS -p $(aws ecr get-login-password --region ap-south-1) 287652358019.dkr.ecr.ap-south-1.amazonaws.com
+      - docker push 287652358019.dkr.ecr.ap-south-1.amazonaws.com/testrepo:$IMAGE_TAG
      
 artifacts:
     files: imagedefinitions.json
