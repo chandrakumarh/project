@@ -9,7 +9,7 @@ phases:
     commands:
       - echo Logging in to Amazon ECR...
       - aws --version
-      - eval $(aws ecr get-login --region ap-southeast-2 --no-include-email | sed 's|https://||'))
+      - eval $(aws ecr get-login --region ap-southeast-2 --no-include-email)
       - REPOSITORY_URI=287652358019.dkr.ecr.ap-south-1.amazonaws.com/testrepo
       - IMAGE_TAG=1.0
   build:
